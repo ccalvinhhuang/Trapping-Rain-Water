@@ -4,12 +4,6 @@
 #include <vector>
 
 using namespace std;
-void printVector(vector<int>v){
-    for(int ele : v){
-        cout << ele << " ";
-    }
-    cout << endl;
-}
 int trap(vector<int>& height) {
     vector<int>max_left(height.size());
     vector<int>max_right;
@@ -41,10 +35,8 @@ int trap(vector<int>& height) {
         if(r == l){
             skip = true;
         }
-        //deal with the left block first
         if(l_max > height[l]){
             if(max_left[l + 1] > height[l]){
-                //cout << "l: " << l << endl;
                 ans += min(l_max, max_left[l + 1]) - height[l];
             }
         }
@@ -53,10 +45,8 @@ int trap(vector<int>& height) {
         if(skip){
             break;
         }
-        //Deal with the right block now
         if(r_max > height[r]){
             if(max_right[r - 1] > height[r]){
-                //cout << "r: " << r << endl;
                 ans += min(r_max, max_right[r - 1]) - height[r];
             }
         }
@@ -64,8 +54,4 @@ int trap(vector<int>& height) {
         r--;
     }
     return ans;
-}
-int main() {
-    vector<int> v = {2,2,0,2,2};
-    cout << trap(v);
 }
