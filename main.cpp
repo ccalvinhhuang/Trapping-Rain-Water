@@ -5,12 +5,12 @@
 
 using namespace std;
 int trap(vector<int>& height) {
-    vector<int>max_left(height.size());
-    vector<int>max_right;
+    int max_left[height.size()];
+    int max_right[height.size()];
     int m = -1;
     for(int i = 0; i < height.size(); i++){
         m = max(m, height[i]);
-        max_right.push_back(m);
+        max_right[i] = m;
     }
     int t  = -1;
     for(int i = height.size() - 1; i >= 0; i--){
