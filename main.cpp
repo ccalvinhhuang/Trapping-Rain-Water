@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <map>
 #include <vector>
-
 using namespace std;
 int trap(vector<int>& height) {
     int max_left[height.size()];
